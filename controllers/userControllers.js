@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 export const register = async (req, res) => {
+    console.log("req.body -.>", req.body)
     try {
         const password = req.body.password
         const salt = await bcrypt.genSalt(10)
@@ -23,6 +24,7 @@ export const register = async (req, res) => {
         }, "secret123", {expiresIn: "30d"})
 
         const {passwordHash, ...userData} = user._doc
+        console.log("userData -.> ",userData)
         res.json({...userData, token})
 
     } catch (err) {
