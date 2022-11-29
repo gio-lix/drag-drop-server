@@ -9,6 +9,7 @@
   },
   "type": "module",
   "scripts": {
+    "build": "npm install",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
